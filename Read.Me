@@ -1,0 +1,251 @@
+Bibliotech API  
+
+Descrição do Projeto  
+
+A Bibliotech API é uma aplicação backend desenvolvida em Java com Spring Boot, cujo objetivo é gerenciar uma biblioteca, permitindo o controle de livros, autores, categorias, usuários e empréstimos.  
+
+Este projeto foi desenvolvido com foco em boas práticas de arquitetura, separando responsabilidades entre Controllers, Services, DTOs, DAOs e Models, além de aplicar regras de negócio, validações e tratamento global de exceções.  
+
+ Importante:  
+
+ Esta é a primeira versão (v1.0) do meu primeiro projeto completo utilizando Spring Boot.  
+
+ Embora o sistema esteja funcional, tenho total consciência de que existem pontos a serem melhorados, tanto em organização, sintaxe, quanto em padrões de mercado.  Por isso, já estou trabalhando em uma versão 2.0, onde aplicarei melhorias de código, mais padronização, maior clareza e técnicas mais avançadas aprendidas durante meus estudos.  
+
+  
+
+ Objetivo do Sistema  
+
+O sistema foi criado para:  
+
+Cadastrar e gerenciar livros  
+
+Gerenciar autores e seus vínculos com livros  
+
+Gerenciar categorias  
+
+Cadastrar usuários  
+
+Controlar empréstimos de livros, incluindo:  
+
+Data de saída o Data prevista de devolução o Extensão de prazo  
+
+Validação de disponibilidade de livros e usuários  
+
+  
+
+️ Tecnologias Utilizadas  
+
+Java  
+
+Spring Boot  
+
+Spring Web  
+
+Spring Data JPA  
+
+Hibernate  
+
+Banco de dados relacional  
+
+DTOs (Request / Response)  
+
+Tratamento global de exceções (@ControllerAdvice)  
+
+  
+
+Arquitetura do Projeto  
+
+O projeto segue uma arquitetura em camadas:
+
+controller  →  service  →  dao  →  database  
+
+                 ↓                    
+                dto  
+
+  
+
+  
+
+  
+
+  
+
+Pacotes principais  
+
+
+            controller 
+
+ Responsável por receber as requisições HTTP e retornar as respostas.  
+
+
+           service  
+
+
+ Contém toda a regra de negócio, validações e lógica do sistema.  
+
+
+            dao  
+
+ Interfaces responsáveis pelo acesso ao banco de dados (Spring Data JPA).  
+
+
+          model  
+
+ Entidades JPA que representam as tabelas do banco.
+
+
+          dto  
+
+o request: dados recebidos do cliente o response: dados devolvidos pela API  
+
+exceptions  Exceções personalizadas e tratamento global de erros.  
+
+Funcionalidades Principais  
+
+     Livros  
+
+Criar livro  
+
+Buscar livro por ID  
+
+Atualizar dados do livro  
+
+Deletar livro (com validação de empréstimos ativos)  
+
+Vincular autores ao livro  
+
+Atualizar lista de autores do livro
+
+
+     Autores  
+
+Criar autor  
+
+Buscar autor  
+
+Atualizar autor  
+
+Deletar autor  
+
+️ Categorias  
+
+Criar categoria  
+
+Buscar categoria  
+
+Atualizar categoria  
+
+Deletar categoria  
+
+
+     Usuários  
+
+Criar usuário  
+
+Buscar usuário  
+
+Atualizar usuário  
+
+Deletar usuário (com validação de empréstimos pendentes) 
+
+
+    Empréstimos  
+
+Criar empréstimo  
+
+Buscar empréstimo  
+
+Atualizar empréstimo  
+
+Devolver livro  
+
+Estender prazo de devolução  
+
+Validações de disponibilidade de livro e usuário  
+
+Validações e Regras de Negócio  
+
+O sistema possui validações como:  
+
+Não permitir campos nulos ou vazios  
+
+Não permitir cadastro duplicado (CPF, ISBN, categorias, etc.)  
+
+Não permitir empréstimo de livro já emprestado  
+
+Não permitir mais de um empréstimo ativo por usuário  
+
+Não permitir exclusão de entidades vinculadas a empréstimos ativos  
+
+Erros são tratados de forma centralizada utilizando exceções customizadas e @ControllerAdvice, retornando status HTTP adequados.  
+
+  
+
+Como Executar o Projeto  
+
+Clone o repositório  
+
+Configure o banco de dados no application.properties  
+
+Execute a aplicação  
+
+Utilize ferramentas como Postman ou Insomnia para consumir os endpoints  
+
+Versões do Projeto  
+
+ Versão 1.0 (Atual)  
+
+Sistema funcional  
+
+Estrutura completa  
+
+Aplicação de conceitos fundamentais do Spring Boot  
+
+Código consciente, porém com pontos a melhorar  
+
+  
+
+Versão 2.0 (Em desenvolvimento)  
+
+Na versão 2.0, o foco será a evolução técnica e arquitetural do projeto, buscando maior aderência às boas práticas utilizadas pelo mercado.  
+
+
+         Melhorias planejadas  
+
+Código mais limpo e padronizado  
+
+Melhor organização de responsabilidades entre camadas  
+
+Uso mais refinado e consistente de DTOs  
+
+
+
+          Possível inclusão  
+
+Testes automatizados  
+
+Documentação da API com Swagger  
+
+Dockerização do projeto
+
+
+        Melhorias já definidas para a v2.0  
+
+Estudo e implementação do consumo de APIs externas  
+
+Integração de um validador de CPF, utilizando uma API pública que verifica a estrutura e a validade matemática do CPF (sem confirmar existência real)  
+
+Integração de um validador de ISBN, utilizando uma API pública que válida a sintaxe e o dígito verificador do código ISBN  
+
+Essas validações têm como objetivo aumentar a confiabilidade dos dados, aplicando regras reais de validação utilizadas no mercado, sem depender de bases governamentais ou privadas.  
+
+  
+
+Considerações Finais  
+
+Este projeto representa um marco inicial na minha jornada como desenvolvedor backend Java, demonstrando minha capacidade de aprender, aplicar conceitos reais e reconhecer pontos de melhoria.  
+
+A versão 2.0 será uma evolução direta deste projeto, refletindo meu crescimento técnico e profissional.  
+
+  
